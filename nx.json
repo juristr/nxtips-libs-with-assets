@@ -25,6 +25,9 @@
     "demoapp-e2e": {
       "tags": [],
       "implicitDependencies": ["demoapp"]
+    },
+    "greeter": {
+      "tags": []
     }
   }
 }

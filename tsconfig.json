@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@libswithassets/greeter": ["libs/greeter/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

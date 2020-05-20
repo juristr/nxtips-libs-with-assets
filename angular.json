@@ -23,7 +23,12 @@
             "aot": true,
             "assets": [
               "apps/demoapp/src/favicon.ico",
-              "apps/demoapp/src/assets"
+              "apps/demoapp/src/assets",
+              {
+                "input": "libs/greeter/src/assets",
+                "glob": "**/*",
+                "output": "assets/greeter"
+              }
             ],
             "styles": ["apps/demoapp/src/styles.scss"],
             "scripts": []
@@ -121,6 +126,38 @@
             "tsConfig": ["apps/demoapp-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/demoapp-e2e/**"]
           }
+        }
+      }
+    },
+    "greeter": {
+      "projectType": "library",
+      "root": "libs/greeter",
+      "sourceRoot": "libs/greeter/src",
+      "prefix": "libswithassets",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/greeter/tsconfig.lib.json",
+              "libs/greeter/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/greeter/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/greeter/jest.config.js",
+            "tsConfig": "libs/greeter/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/greeter/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }
