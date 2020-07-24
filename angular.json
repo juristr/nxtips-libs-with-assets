@@ -88,16 +88,14 @@
               "apps/demoapp/tsconfig.app.json",
               "apps/demoapp/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/demoapp/**"]
+            "exclude": ["**/node_modules/**", "!apps/demoapp/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/demoapp/jest.config.js",
-            "tsConfig": "apps/demoapp/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "apps/demoapp/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       }
@@ -124,7 +122,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["apps/demoapp-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/demoapp-e2e/**"]
+            "exclude": ["**/node_modules/**", "!apps/demoapp-e2e/**/*"]
           }
         }
       }
@@ -142,16 +140,14 @@
               "libs/greeter/tsconfig.lib.json",
               "libs/greeter/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/greeter/**"]
+            "exclude": ["**/node_modules/**", "!libs/greeter/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/greeter/jest.config.js",
-            "tsConfig": "libs/greeter/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/greeter/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
